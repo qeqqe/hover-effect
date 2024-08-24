@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css?family=Abril+Fatface|Barrio|Julius+Sans+One|Limelight|Open+Sans+Condensed:300");
+
+@mixin delay {
+  @for $i from 1 through 9 {
+    &:nth-child(#{$i}) {
+      transition-delay: #{$i * 0.05}s;
+    }
+  }
+}
+
+body,html{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background: linear-gradient(135deg,#FF8A8A,#c3b28f);
+}
+.link{
+    outline: none;
+    text-decoration: none;
+    position: relative;
+    font-size: 5em;
+    line-height: 1.3;
+    color: #9e9ba4;
+    display: inline-block;
+}
+.link-yoyo{
+    color: #D3D3D3;
+    font-family: 'Julius Sans One';
+    font-weight: 100;
+    text-transform: uppercase;
+    font-size: 5em;
+    overflow: hidden;
+    padding: 0 0 10px;
+}
+.link:before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-width: 2px 0;
+    border-style: solid;
+    left: 0;
+    transform: translate3d(-101%,0,0);
+    transition: transform 0.5s;
+}
+.link:hover::before{
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    color: #F0EAAC;
+}
+.link span{
+    transform: perspective(1000px) rotate3d(0,1,0,0deg);
+    transition: transform 0.5s, color 0.5s;
+    display: inline-block;
+    position: relative;
+    -webkit-transform: perspective(1000px) rotate3d(0,1,0,0deg);
+    transform: perspective(1000px) rotate3d(0,1,0,0deg);
+    transition: transform 0.5s, color 0.5s;
+    @include delay;
+}
+.link:hover span {
+    color: #AD49E1;  
+    transform: perspective(1000px) rotate3d(0,1,0,360deg);
+}
+*, *:after, *:before {
+    box-sizing: border-box;
+}
